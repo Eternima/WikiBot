@@ -11,7 +11,16 @@
 from telebot import TeleBot, types
 import wikipedia
 import time
-from config import tg_token
+from config import tg_token,host,user,password,dbname
+import pymysql
+try:
+    connection=pymysql.connect(host=host,port=3306,user=user,password=password,database=dbname,cursorclass=pymysql.cursors.DictCursor)
+    print("connection succed")
+    print("#"*20)
+
+except Exception as e:
+    print("connection refused")
+    print(e)
 
 
 def time_convert(text):
@@ -66,13 +75,13 @@ helpt = open('Help.txt', encoding='utf-8').read()
 
 @bot.message_handler(commands=['start'])
 def main(message):
-    '''Посылает приветственное сообщение пользователю
+    """Посылает приветственное сообщение пользователю
 
     :param message: Сообщение от пользователя
     :type message: any
-    :returns: None'''
-    bot.send_message(message.chat.id,
-                     'Привет, я Wiki-бот с плохой реализацией. Если тебе нужна помощь с командами, то введи /help')
+    :returns: None"""
+    bot.send_message(message.chat.id, 'Привет, я Wiki-бот с плохой реализацией. Если тебе нужна помощь с командами, '
+                                      'то введи /help')
 
 
 @bot.message_handler(commands=['help'])
