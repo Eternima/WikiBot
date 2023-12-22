@@ -11,6 +11,7 @@
 from telebot import TeleBot, types
 import wikipedia
 import time
+from config import tg_token
 
 
 def time_convert(text):
@@ -20,7 +21,7 @@ def time_convert(text):
         :type text: str
         :returns: converted text[0]*int(text[1:])
         :rtype:int"""
-    times = {'h': 3600, 'd': 86400, 'w': 604800, 'm': 2419200, 'y': 31536000}
+    times = {'h': 3600, 'd': 86400, 'w': 604800, 'm': 2419200, 'y': 31536000, 's': 1}
     return times[text[0]] * int(text[1:])
 
 
@@ -59,7 +60,7 @@ def wikipage(pagename):
     return page.title, page.summary, page.url
 
 
-bot = TeleBot('6882230552:AAF9N4K8Ye4dnpfFZrug4bpH9EAwSvAKNWI')
+bot = TeleBot(tg_token)
 helpt = open('Help.txt', encoding='utf-8').read()
 
 
@@ -149,7 +150,7 @@ def wiki(message):
             bot.send_message(message.chat.id, summary)
             bot.send_message(message.chat.id, url)
         except Exception:
-            bot.send_message(message.chat.id, "К сожалению я не могу ничего найти по запросу")
+            bot.send_message(message.chat.id, f"К сожалению я не могу ничего найти по запросу {text}")
 
 
 @bot.callback_query_handler(func=lambda call: call.data)
