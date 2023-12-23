@@ -6,16 +6,22 @@
     :param helpt: Файл с полезной информацией о боте
     :type helpt: file
     :param timer_seconds: Промежуток времени для отправки избраных статей
-    :type timer_seconds: int"""
+    :type timer_seconds: int
+    :param top_n: Кол-во выводимых популярных запросов
+    :type top_n: int
+    :param connection: Соединение с бд
+    :type connection: any"""
 
 from telebot import TeleBot, types
 import wikipedia
 import time
 from config import tg_token,host,user,password,dbname
 import pymysql
+
+
 try:
     connection=pymysql.connect(host=host,port=3306,user=user,password=password,database=dbname,cursorclass=pymysql.cursors.DictCursor)
-    print("connection succed")
+    print("connection succeed")
     print("#"*20)
 
 except Exception as e:
@@ -36,6 +42,7 @@ def time_convert(text):
 
 wikipedia.set_lang('ru')
 timer_seconds = 3600 * 24 * 7
+top_n=5
 
 
 def wikisearch(quary):
@@ -123,6 +130,47 @@ def daily_state(message):
     daily_state(message)
 
 
+@bot.message_handler(commands=['settop'])
+def settopn(message):
+    """Устанавливает желаемое колличество выводимых популярных значений
+
+        :param message: Сообщение от пользователя
+        :type message: any
+        :returns: None
+    """
+    global top_n
+    try:
+        top_n = int(message.text.split('')[1])
+    except Exception:
+        bot.send_message(message.chat.id, "Введите число")
+
+@bot.message_handler(commands=['mostpopular'])
+def mp(message):
+    """Выводит самые популярные запросы и ссылки на них
+
+        :param message: Сообщение от пользователя
+        :type message: any
+    """
+    global top_n
+    try:
+        n = top_n -1
+        select_mostpopular_name = "SELECT name, count(*) from query group by name order by 2 desc limit %s"
+        select_mostpopular_url = "SELECT url, count(*) from query group by name order by 2 desc limit %s"
+        with connection.cursor() as cursor:
+            cursor.execute(select_mostpopular_name,top_n)
+            names = cursor.fetchall()
+            cursor.execute(select_mostpopular_url,top_n)
+            urls = cursor.fetchall()
+            for popular in range(len(names)):
+                name=dict(names[popular]).values()
+                surl=dict(urls[popular]).values()
+                bot.send_message(message.chat.id, name)
+                bot.send_message(message.chat.id,surl)
+    except Exception as e:
+        print(e)
+        bot.send_message(message.chat.id, "Прости, я не смог посчитать популярные запросы")
+
+
 @bot.message_handler()
 def wiki(message):
     """Отправляет сообщение с результатами поиска
@@ -158,6 +206,15 @@ def wiki(message):
             bot.send_message(message.chat.id, title)
             bot.send_message(message.chat.id, summary)
             bot.send_message(message.chat.id, url)
+            db_url=str(url)
+            try:
+                insert_url = "INSERT INTO query(`name`,`url`) VALUES (%s,%s)"
+                insert_val = (title,db_url)
+                with connection.cursor() as cursor:
+                    cursor.execute(insert_url, insert_val)
+                    connection.commit()
+            except Exception as e:
+                print(e)
         except Exception:
             bot.send_message(message.chat.id, f"К сожалению я не могу ничего найти по запросу {text}")
 
@@ -180,6 +237,15 @@ def answer(call):
         bot.send_message(call.message.chat.id, text=title)
         bot.send_message(call.message.chat.id, text=summary)
         bot.send_message(call.message.chat.id, text=url)
+        db_url = str(url)
+        try:
+            insert_url = "INSERT INTO query(`name`,`url`) VALUES (%s,%s)"
+            insert_val = (title, db_url)
+            with connection.cursor() as cursor:
+                cursor.execute(insert_url, insert_val)
+                connection.commit()
+        except Exception as e:
+            print(e)
     except Exception:
         bot.send_message(call.message.chat.id, f"К сожалению я не могу ничего найти по запросу {call.data} ")
 
