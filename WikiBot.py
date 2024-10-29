@@ -17,7 +17,12 @@ import wikipedia
 import time
 from config import tg_token,host,user,password,dbname
 import pymysql
-
+import threading
+def keep_connection_alive(conn,interval=60):
+    while True:
+        time.sleep(interval)
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT 1")
 
 try:
     connection=pymysql.connect(host=host,port=3306,user=user,password=password,database=dbname,cursorclass=pymysql.cursors.DictCursor)
@@ -27,6 +32,8 @@ try:
 except Exception as e:
     print("connection refused")
     print(e)
+
+
 
 
 def time_convert(text):
@@ -79,6 +86,9 @@ def wikipage(pagename):
 bot = TeleBot(tg_token)
 helpt = open('Help.txt', encoding='utf-8').read()
 
+thread = threading.Thread(target=keep_connection_alive, args=(connection,))
+thread.daemon = True
+thread.start()
 
 @bot.message_handler(commands=['start'])
 def main(message):
