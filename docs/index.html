@@ -7,7 +7,7 @@
   <head>
     
     <title>WikiBot</title>
-    <meta name="generator" content="pydoctor 23.9.1"> 
+    <meta name="generator" content="pydoctor 24.3.3"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -193,6 +193,16 @@
         
 
         
+            <div class="itemName"><code><a href="#keep_connection_alive" class="internal-link" title="WikiBot.keep_connection_alive">keep<wbr></wbr>_connection<wbr></wbr>_alive</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#main" class="internal-link" title="WikiBot.main">main</a></code>
             </div>
         
@@ -273,8 +283,71 @@
         
          
 
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
         
-         
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bot" class="internal-link" title="WikiBot.bot">bot</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#connection" class="internal-link" title="WikiBot.connection">connection</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#helpt" class="internal-link" title="WikiBot.helpt">helpt</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#thread" class="internal-link" title="WikiBot.thread">thread</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#timer_seconds" class="internal-link" title="WikiBot.timer_seconds">timer<wbr></wbr>_seconds</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#top_n" class="internal-link" title="WikiBot.top_n">top<wbr></wbr>_n</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
 
         
          
@@ -314,8 +387,7 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p>По запросу пользователя отправляет ему статью с коротким описанием
-и ссылкой на неё</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bot</span></td><td class="fieldArgDesc">Бот</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">helpt</span></td><td class="fieldArgDesc">Файл с полезной информацией о боте</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">timer<wbr></wbr>_seconds</span></td><td class="fieldArgDesc">Промежуток времени для отправки избраных статей</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">top<wbr></wbr>_n</span></td><td class="fieldArgDesc">Кол-во выводимых популярных запросов</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">connection</span></td><td class="fieldArgDesc">Соединение с бд</td></tr></table></div>
+          <div><p>По запросу пользователя отправляет ему статью с коротким описанием и ссылкой на неё</p></div>
         </div>
 
         <div id="splitTables">
@@ -340,6 +412,11 @@
   </tr><tr class="function">
     
     <td>Function</td>
+    <td><code><a href="#keep_connection_alive" class="internal-link" title="WikiBot.keep_connection_alive">keep<wbr></wbr>_connection<wbr></wbr>_alive</a></code></td>
+    <td>Оставляет соединение с БД активным до окончания работы с ботом</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
     <td><code><a href="#main" class="internal-link" title="WikiBot.main">main</a></code></td>
     <td>Посылает приветственное сообщение пользователю</td>
   </tr><tr class="function">
@@ -351,7 +428,7 @@
     
     <td>Function</td>
     <td><code><a href="#set_time" class="internal-link" title="WikiBot.set_time">set<wbr></wbr>_time</a></code></td>
-    <td>на избранные статьи с Википедии</td>
+    <td>Устанавливает период времени на отправку ссылки на избранные статьи с Википедии</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -377,6 +454,36 @@
     <td>Function</td>
     <td><code><a href="#wikisearch" class="internal-link" title="WikiBot.wikisearch">wikisearch</a></code></td>
     <td>Ищет 15 самых популярных запросов по клячевому слову из Википедии</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#bot" class="internal-link" title="WikiBot.bot">bot</a></code></td>
+    <td>Бот</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#connection" class="internal-link" title="WikiBot.connection">connection</a></code></td>
+    <td>Соединение с бд</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#helpt" class="internal-link" title="WikiBot.helpt">helpt</a></code></td>
+    <td>Файл с полезной информацией о боте</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#thread" class="internal-link" title="WikiBot.thread">thread</a></code></td>
+    <td>Cоздаёт поток под keep_connection_alive</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#timer_seconds" class="internal-link" title="WikiBot.timer_seconds">timer<wbr></wbr>_seconds</a></code></td>
+    <td>Промежуток времени для отправки избраных статей</td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#top_n" class="internal-link" title="WikiBot.top_n">top<wbr></wbr>_n</a></code></td>
+    <td>Кол-во выводимых популярных запросов</td>
   </tr>
 </table>
           
@@ -407,7 +514,9 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Отправляет информацию поиска по запросу с клавиатуры markup</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">call:</span>any</td><td class="fieldArgDesc">Запрос от bat</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">title:</span>str</td><td class="fieldArgDesc">Название статьи</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">summary:</span>str</td><td class="fieldArgDesc">Краткое содержание статьи</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">url:</span>any</td><td class="fieldArgDesc">Ссылка на статью</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">None</td></tr></table></div>
+    <div><p>Отправляет информацию поиска по запросу с клавиатуры markup</p>
+<p>:param call: Запрос от bat :type call: any :param title: Название статьи :type title: str :param summary: Краткое содержание статьи :type summary: str :param url: Ссылка на статью :type url: any :returns: None</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -432,8 +541,8 @@
   <div class="docstring functionBody">
     
     <div><p>Отправляет ссылку на избранные статьи с Википедии через промежуток времени</p>
-<p>:returns:None</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr></table></div>
+<p>:param message: Сообщение от пользователя :type message: any :returns:None</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -457,7 +566,35 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Посылает сообщение с полезной информацией о боте</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr></table></div>
+    <div><p>Посылает сообщение с полезной информацией о боте</p>
+<p>:param message: Сообщение от пользователя :type message: any</p>
+</div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="WikiBot.keep_connection_alive">
+    
+  </a>
+  <a name="keep_connection_alive">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span> <span class="py-defname">keep_connection_alive</span><span class="function-signature">(conn, interval=60)</span>:
+    
+    <a class="headerLink" href="#keep_connection_alive" title="WikiBot.keep_connection_alive">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Оставляет соединение с БД активным до окончания работы с ботом</p>
+<p>:param conn: соединение с БД :type conn: pymysql.connect :param interval: интервал между запросами к БД для поддержания активности связи :type interval: int</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -481,7 +618,9 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Посылает приветственное сообщение пользователю</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">None</td></tr></table></div>
+    <div><p>Посылает приветственное сообщение пользователю</p>
+<p>:param message: Сообщение от пользователя :type message: any :returns: None</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -505,7 +644,9 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Выводит самые популярные запросы и ссылки на них</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr></table></div>
+    <div><p>Выводит самые популярные запросы и ссылки на них</p>
+<p>:param message: Сообщение от пользователя :type message: any</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -529,13 +670,9 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p><dl class="rst-docutils">
-<dt>Устанавливает период времени на отправку ссылки</dt>
-<dd>на избранные статьи с Википедии</dd>
-</dl>
-<p>:returns:None
-:exception: TypeError</p>
-</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr></table></div>
+    <div><p>Устанавливает период времени на отправку ссылки на избранные статьи с Википедии</p>
+<p>:param message: Сообщение от пользователя :type message: any :returns:None :exception: TypeError</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -559,7 +696,9 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Устанавливает желаемое колличество выводимых популярных значений</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">None</td></tr></table></div>
+    <div><p>Устанавливает желаемое колличество выводимых популярных значений</p>
+<p>:param message: Сообщение от пользователя :type message: any :returns: None</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -584,8 +723,8 @@
   <div class="docstring functionBody">
     
     <div><p>Меняет фомат времени из (h1,d1,w1,m1,y1) в секундный</p>
-<p>:rtype:int</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>str</td><td class="fieldArgDesc">format1</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">converted text[0]*int(text[1:])</td></tr></table></div>
+<p>:param text: format1 :type text: str :returns: converted text[0]*int(text[1:]) :rtype:int</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -610,15 +749,8 @@
   <div class="docstring functionBody">
     
     <div><p>Отправляет сообщение с результатами поиска</p>
-<p>:type bat:InlineKeyboardButton
-:param title: Название статьи
-:type title: str
-:param summary: Краткое содержание статьи
-:type summary: str
-:param url: Ссылка на статью
-:type url: any
-:returns: None</p>
-<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">message:</span>any</td><td class="fieldArgDesc">Сообщение от пользователя</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">text:</span>str</td><td class="fieldArgDesc">стандартизированый запрос от пользователя</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">results:</span>array</td><td class="fieldArgDesc">Результаты поиска</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">markup:</span>InlineKeyboardMarkup</td><td class="fieldArgDesc">клавиатура вариантов под сообщением от бота</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bat</span></td><td class="fieldArgDesc">кнопка для markup</td></tr></table></div>
+<p>:param message: Сообщение от пользователя :type message: any :param text: стандартизированый запрос от пользователя :type text: str :param results: Результаты поиска :type results: array :param markup: клавиатура вариантов под сообщением от бота :type markup: InlineKeyboardMarkup :param bat: кнопка для markup :type bat:InlineKeyboardButton :param title: Название статьи :type title: str :param summary: Краткое содержание статьи :type summary: str :param url: Ссылка на статью :type url: any :returns: None</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -642,7 +774,9 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Ищет на Википедии статью по запросу с самым близким к нему значением</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">pagename:</span>str</td><td class="fieldArgDesc">Поисковый запрос к Википедии</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">page:</span>WikipediaPage</td><td class="fieldArgDesc">result of search</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">page<wbr></wbr>.title:</span>str</td><td class="fieldArgDesc">name of page</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">page<wbr></wbr>.summary:</span>str</td><td class="fieldArgDesc">short version of article</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">page<wbr></wbr>.url:</span>any</td><td class="fieldArgDesc">link on page</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">page.title, page.summary, page.url</td></tr></table></div>
+    <div><p>Ищет на Википедии статью по запросу с самым близким к нему значением</p>
+<p>:param pagename: Поисковый запрос к Википедии :type pagename: str :param page: result of search :type page: WikipediaPage :returns: page.title, page.summary, page.url :param page.title: name of page :type page.title: str :param page.summary: short version of article :type page.summary: str :param page.url: link on page :type page.url: any</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -666,7 +800,153 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Ищет 15 самых популярных запросов по клячевому слову из Википедии</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">quary:</span>str</td><td class="fieldArgDesc">Поисковый запрос к Википедии</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">res:</span>array</td><td class="fieldArgDesc">results of searching</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">array</td><td class="fieldArgDesc">res</td></tr></table></div>
+    <div><p>Ищет 15 самых популярных запросов по клячевому слову из Википедии</p>
+<p>:param quary: Поисковый запрос к Википедии :type quary: str :param res: results of searching :type res: array :returns: res :rtype: array</p>
+</div>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="WikiBot.bot">
+    
+  </a>
+  <a name="bot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bot</span> =
+    
+    <a class="headerLink" href="#bot" title="WikiBot.bot">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Бот</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="WikiBot.connection">
+    
+  </a>
+  <a name="connection">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">connection</span> =
+    
+    <a class="headerLink" href="#connection" title="WikiBot.connection">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Соединение с бд</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="WikiBot.helpt">
+    
+  </a>
+  <a name="helpt">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">helpt</span> =
+    
+    <a class="headerLink" href="#helpt" title="WikiBot.helpt">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Файл с полезной информацией о боте</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="WikiBot.thread">
+    
+  </a>
+  <a name="thread">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">thread</span> =
+    
+    <a class="headerLink" href="#thread" title="WikiBot.thread">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Cоздаёт поток под keep_connection_alive</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="WikiBot.timer_seconds">
+    
+  </a>
+  <a name="timer_seconds">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">timer_seconds</span> =
+    
+    <a class="headerLink" href="#timer_seconds" title="WikiBot.timer_seconds">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Промежуток времени для отправки избраных статей</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="WikiBot.top_n">
+    
+  </a>
+  <a name="top_n">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">top_n</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#top_n" title="WikiBot.top_n">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Кол-во выводимых популярных запросов</p></div>
+    
   </div>
 </div>
         </div>
@@ -680,7 +960,7 @@
   <div class="container">
     <a href="index.html">API Documentation</a> for WikiBot,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    23.9.1 at 2023-12-23 09:10:48.
+    24.3.3 at 2024-10-30 00:07:42.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
